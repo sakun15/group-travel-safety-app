@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import '../map/map_screen.dart';
 
 class CreateTripScreen extends StatefulWidget {
   const CreateTripScreen({super.key});
@@ -62,19 +63,31 @@ class _CreateTripScreenState extends State<CreateTripScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  if (_tripNameController.text.trim().isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Please enter a trip name'),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
-                    return;
-                  }
-                  setState(() {
-                    _generatedCode = _generateCode();
-                  });
-                },
+  if (_tripNameController.text.trim().isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Please enter a trip name'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return;
+  }
+  final code = _generateCode();
+  setState(() {
+    _generatedCode = code;
+  });
+  Future.delayed(const Duration(seconds: 1), () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MapScreen(
+          tripCode: code,
+          tripName: _tripNameController.text.trim(),
+        ),
+      ),
+    );
+  });
+},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1A56DB),
                   foregroundColor: Colors.white,
