@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "999777582989",
+    "project_id": "group-travel-safety",
+    "storage_bucket": "group-travel-safety.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999777582989:android:55f1e2e5b8664f573c07c4",
+        "android_client_info": {
+          "package_name": "com.example.group_travel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9FeYgGoc2AR4oW4k-dDoJQ5r2B172u4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
